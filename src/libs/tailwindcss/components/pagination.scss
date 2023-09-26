@@ -1,0 +1,56 @@
+.abc-pagination {
+  @apply flex;
+  &__list {
+    @apply inline-flex items-center justify-center space-x-1.5;
+  }
+
+  &__number {
+    @apply bg-slate-400 text-slate-50;
+  }
+
+  &__item {
+    @apply overflow-hidden rounded-md text-slate-50 transition-all duration-150;
+    &:not(.abc-pagination__icon--disabled, .abc-pagination__icon) {
+      @apply hover:border-slate-50 hover:text-white;
+    }
+    &--active {
+      @apply border-slate-50 text-slate-50;
+      button {
+        @apply border-slate-200;
+      }
+    }
+    button {
+      @apply flex h-7 w-7 items-center justify-center;
+    }
+  }
+
+  &__icon {
+    @apply bg-transparent;
+    &--disabled {
+      @apply text-slate-400;
+    }
+    i {
+      @apply text-2xl;
+    }
+  }
+
+  .light:not(.abc-pagination__icon) {
+    @apply bg-slate-600;
+  }
+  .light + .abc-pagination__item:not(.abc-pagination__icon--disabled, .abc-pagination__icon) {
+    @apply hover:bg-slate-300;
+  }
+  .abc-pagination__item--active {
+    @apply bg-slate-300 #{!important};
+  }
+
+  .dark + .abc-pagination__item:not(.abc-pagination__icon--disabled, .abc-pagination__icon) {
+    @apply hover:bg-slate-600;
+  }
+  &__item.abc-pagination__icon.dark:not(.abc-pagination__icon--disabled) {
+    @apply text-slate-700;
+  }
+  .dark + .abc-pagination__item--active {
+    @apply bg-slate-600 #{!important};
+  }
+}
